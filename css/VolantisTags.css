@@ -6,12 +6,13 @@
 /*鼠标样式*/
 body {
     cursor: url(https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@latest/Hexo/img/default.cur),
-    default;
+        default;
 }
+
 a,
 img {
     cursor: url(https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@latest/Hexo/img/pointer.cur),
-    default;
+        default;
 }
 
 /* 取消页脚背景 */
@@ -19,10 +20,36 @@ img {
     background: transparent !important;
 }
 
+
 /* 取消banner背景 */
 #page-header {
     /* 采用透明的方式取消，最后一个0表示透明 */
     background-color: rgba(255, 255, 255, 0);
+}
+
+[data-theme='dark'] .MiniValine .vinputs-area .textarea-wrapper .commentTrigger {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0);
+    padding: 0 0 0 1.5em;
+}
+
+
+[data-theme='dark'] #page-header {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+[data-theme='dark'] #page-header:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    content: '';
 }
 
 /* 滚动条优化 */
@@ -59,7 +86,8 @@ img {
 }
 
 /* 隐藏按钮不消失 */
-.hide-block > a.hide-button.open, .hide-inline > a.hide-button.open {
+.hide-block>a.hide-button.open,
+.hide-inline>a.hide-button.open {
     display: inline-block;
 }
 
@@ -74,13 +102,14 @@ img {
 @keyframes link_custom {
     from {
         box-shadow: 0 0 5px var(--primary-color, grey),
-        inset 0 0 5px var(--primary-color, grey),
-        0 1px 0 var(--primary-color, grey);
+            inset 0 0 5px var(--primary-color, grey),
+            0 1px 0 var(--primary-color, grey);
     }
+
     to {
         box-shadow: 0 0 20px var(--primary-color, grey),
-        inset 0 0 10px var(--primary-color, grey),
-        0 1px 0 var(--primary-color, grey);
+            inset 0 0 10px var(--primary-color, grey),
+            0 1px 0 var(--primary-color, grey);
     }
 }
 
@@ -88,15 +117,19 @@ img {
     0% {
         box-shadow: 0 0 4px #ca00ff;
     }
+
     25% {
         box-shadow: 0 0 16px #00b5e5;
     }
+
     50% {
         box-shadow: 0 0 4px #00f;
     }
+
     75% {
         box-shadow: 0 0 16px #b1da21;
     }
+
     100% {
         box-shadow: 0 0 4px red;
     }
@@ -106,6 +139,7 @@ img {
     from {
         border-color: transparent;
     }
+
     to {
         border-color: var(--primary-color, grey);
     }
@@ -115,6 +149,7 @@ img {
     from {
         transform: rotate(0);
     }
+
     to {
         transform: rotate(-360deg);
     }
@@ -124,34 +159,35 @@ img {
     from {
         transform: rotate(0);
     }
+
     to {
         transform: rotate(360deg);
     }
 }
 
-.flink#article-container .flink-list > .flink-list-item a:hover {
+.flink#article-container .flink-list>.flink-list-item a:hover {
     color: #fff;
 }
 
-.flink .flink-list > .flink-list-item a {
+.flink .flink-list>.flink-list-item a {
     color: var(--primary-color, #49b1f5);
     text-decoration: none;
 }
 
-.flink .flink-list > .flink-list-item:hover {
+.flink .flink-list>.flink-list-item:hover {
     box-shadow: 0 2px 20px var(--primary-color, #49b1f5);
     animation-play-state: paused;
 }
 
-.flink#article-container .flink-list > .flink-list-item:before {
+.flink#article-container .flink-list>.flink-list-item:before {
     background: var(--primary-color, #49b1f5);
 }
 
-.flink .flink-list > .flink-list-item {
+.flink .flink-list>.flink-list-item {
     border: 0 solid var(--primary-color, #49b1f5);
 }
 
-.flink#article-container .flink-list > .flink-list-item:hover img {
+.flink#article-container .flink-list>.flink-list-item:hover img {
     -webkit-transform: rotate(var(--primary-rotate));
     -moz-transform: rotate(var(--primary-rotate));
     -o-transform: rotate(var(--primary-rotate));
@@ -159,19 +195,19 @@ img {
     transform: rotate(var(--primary-rotate));
 }
 
-.flink#article-container .flink-list > .flink-list-item a .lauto {
+.flink#article-container .flink-list>.flink-list-item a .lauto {
     animation: auto_rotate_left var(--autotime) linear infinite;
 }
 
-.flink#article-container .flink-list > .flink-list-item a .rauto {
+.flink#article-container .flink-list>.flink-list-item a .rauto {
     animation: auto_rotate_right var(--autotime) linear infinite;
 }
 
-.flink#article-container .flink-list > .flink-list-item .customcolor {
+.flink#article-container .flink-list>.flink-list-item .customcolor {
     color: var(--namecolor, #1f2d3d);
 }
 
-.flink#article-container .flink-list > .flink-list-item .customcolor:hover {
+.flink#article-container .flink-list>.flink-list-item .customcolor:hover {
     color: #fff;
 }
 
@@ -182,20 +218,24 @@ img {
 }
 
 @-moz-keyframes iconAnimate {
+
     0%,
     100% {
         transform: scale(1);
     }
+
     10%,
     30% {
         transform: scale(0.9);
     }
+
     20%,
     40%,
     60%,
     80% {
         transform: scale(1.1);
     }
+
     50%,
     70% {
         transform: scale(1.1);
@@ -203,20 +243,24 @@ img {
 }
 
 @-webkit-keyframes iconAnimate {
+
     0%,
     100% {
         transform: scale(1);
     }
+
     10%,
     30% {
         transform: scale(0.9);
     }
+
     20%,
     40%,
     60%,
     80% {
         transform: scale(1.1);
     }
+
     50%,
     70% {
         transform: scale(1.1);
@@ -224,20 +268,24 @@ img {
 }
 
 @-o-keyframes iconAnimate {
+
     0%,
     100% {
         transform: scale(1);
     }
+
     10%,
     30% {
         transform: scale(0.9);
     }
+
     20%,
     40%,
     60%,
     80% {
         transform: scale(1.1);
     }
+
     50%,
     70% {
         transform: scale(1.1);
@@ -245,20 +293,24 @@ img {
 }
 
 @keyframes iconAnimate {
+
     0%,
     100% {
         transform: scale(1);
     }
+
     10%,
     30% {
         transform: scale(0.9);
     }
+
     20%,
     40%,
     60%,
     80% {
         transform: scale(1.1);
     }
+
     50%,
     70% {
         transform: scale(1.1);
@@ -267,7 +319,7 @@ img {
 
 /* 头像点击特效 https://gitee.com/lovelijunyi/images/raw/master/20200530181856.gif*/
 .card-info-avatar:hover {
-background: url(https://gitee.com/cnnc/pic-go-picture-bed/raw/master/img/H3342af90d24b4d62b9bbfec9688ccc25M.gif);
+    background: url(https://gitee.com/cnnc/pic-go-picture-bed/raw/master/img/H3342af90d24b4d62b9bbfec9688ccc25M.gif);
 }
 
 /* 标签自定义颜色 */
@@ -296,13 +348,11 @@ background: url(https://gitee.com/cnnc/pic-go-picture-bed/raw/master/img/H3342af
     position: relative;
     color: #fff;
     background: #20a0ff;
-    background: -webkit-gradient(
-            linear,
+    background: -webkit-gradient(linear,
             left top,
             right top,
             from(#20a0ff),
-            to(#20b8ff)
-    );
+            to(#20b8ff));
     background: -webkit-linear-gradient(left, #5b1bd0, #20b8ff);
     background: linear-gradient(90deg, #0092ff, #6a3fb9);
     padding: 6px 20px;
@@ -318,13 +368,11 @@ background: url(https://gitee.com/cnnc/pic-go-picture-bed/raw/master/img/H3342af
 
 .tip:before {
     background: #20a0ff;
-    background: -webkit-gradient(
-            linear,
+    background: -webkit-gradient(linear,
             left bottom,
             left top,
             from(#0092ff),
-            to(#20b8ff)
-    );
+            to(#20b8ff));
     background: -webkit-linear-gradient(bottom, #0092ff, #20b8ff);
     background: linear-gradient(0deg, #0092ff, #20b8ff);
     border-radius: 50%;
@@ -360,13 +408,11 @@ background: url(https://gitee.com/cnnc/pic-go-picture-bed/raw/master/img/H3342af
 
 .tip.success {
     background: #61be33;
-    background: -webkit-gradient(
-            linear,
+    background: -webkit-gradient(linear,
             left top,
             right top,
             from(#61be33),
-            to(#8fce44)
-    );
+            to(#8fce44));
     background: -webkit-linear-gradient(left, #61be33, #8fce44);
     background: linear-gradient(90deg, #61be33, #8fce44);
     text-shadow: 0 -1px #61be33;
@@ -375,13 +421,11 @@ background: url(https://gitee.com/cnnc/pic-go-picture-bed/raw/master/img/H3342af
 }
 
 .tip.success:before {
-    background: -webkit-gradient(
-            linear,
+    background: -webkit-gradient(linear,
             left bottom,
             left top,
             from(#52bb1d),
-            to(#95d34b)
-    );
+            to(#95d34b));
     background: -webkit-linear-gradient(bottom, #52bb1d, #95d34b);
     background: linear-gradient(0deg, #52bb1d, #95d34b);
     content: "\f00c";
@@ -390,13 +434,11 @@ background: url(https://gitee.com/cnnc/pic-go-picture-bed/raw/master/img/H3342af
 
 .tip.warning {
     background: #ff953f;
-    background: -webkit-gradient(
-            linear,
+    background: -webkit-gradient(linear,
             left top,
             right top,
             from(#ff953f),
-            to(#ffb449)
-    );
+            to(#ffb449));
     background: -webkit-linear-gradient(left, #ff953f, #ffb449);
     background: linear-gradient(90deg, #ff953f, #ffb449);
     text-shadow: 0 -1px #ff953f;
@@ -405,13 +447,11 @@ background: url(https://gitee.com/cnnc/pic-go-picture-bed/raw/master/img/H3342af
 }
 
 .tip.warning:before {
-    background: -webkit-gradient(
-            linear,
+    background: -webkit-gradient(linear,
             left bottom,
             left top,
             from(#ff8f35),
-            to(#ffc149)
-    );
+            to(#ffc149));
     background: -webkit-linear-gradient(bottom, #ff8f35, #ffc149);
     background: linear-gradient(0deg, #ff8f35, #ffc149);
     content: "\f12a";
@@ -420,13 +460,11 @@ background: url(https://gitee.com/cnnc/pic-go-picture-bed/raw/master/img/H3342af
 
 .tip.error {
     background: #ff4949;
-    background: -webkit-gradient(
-            linear,
+    background: -webkit-gradient(linear,
             left top,
             right top,
             from(#ff4949),
-            to(#ff7849)
-    );
+            to(#ff7849));
     background: -webkit-linear-gradient(left, #ff4949, #ff7849);
     background: linear-gradient(90deg, #ff4949, #ff7849);
     text-shadow: 0 -1px #ff4949;
@@ -435,13 +473,11 @@ background: url(https://gitee.com/cnnc/pic-go-picture-bed/raw/master/img/H3342af
 }
 
 .tip.error:before {
-    background: -webkit-gradient(
-            linear,
+    background: -webkit-gradient(linear,
             left bottom,
             left top,
             from(#ff3838),
-            to(#ff7849)
-    );
+            to(#ff7849));
     background: -webkit-linear-gradient(bottom, #ff3838, #ff7849);
     background: linear-gradient(0deg, #ff3838, #ff7849);
     content: "\f00d";
@@ -449,13 +485,11 @@ background: url(https://gitee.com/cnnc/pic-go-picture-bed/raw/master/img/H3342af
 }
 
 .tip.wtgo {
-    background: -webkit-gradient(
-            linear,
+    background: -webkit-gradient(linear,
             left bottom,
             left top,
             from(#3d8b48),
-            to(#477837)
-    );
+            to(#477837));
     background: -webkit-linear-gradient(bottom, #3c3, #459431);
     background: linear-gradient(530deg, #78ca33, #25822c);
     content: "\f00d";
@@ -463,13 +497,11 @@ background: url(https://gitee.com/cnnc/pic-go-picture-bed/raw/master/img/H3342af
 }
 
 .tip.wtgo:before {
-    background: -webkit-gradient(
-            linear,
+    background: -webkit-gradient(linear,
             left bottom,
             left top,
             from(#3c0),
-            to(#3c0)
-    );
+            to(#3c0));
     background: -webkit-linear-gradient(bottom, #3c3, #459431);
     background: linear-gradient(776deg, #78ca33, #25822c);
     content: "\f0e7";
@@ -478,13 +510,11 @@ background: url(https://gitee.com/cnnc/pic-go-picture-bed/raw/master/img/H3342af
 
 .tip.ban {
     background: #ff4949;
-    background: -webkit-gradient(
-            linear,
+    background: -webkit-gradient(linear,
             left top,
             right top,
             from(#ff4949),
-            to(#ff3443)
-    );
+            to(#ff3443));
     background: -webkit-linear-gradient(left, #ff4949, #ff1022);
     background: linear-gradient(90deg, #ff4949, #f03b49);
     text-shadow: 0 -1px #ff4949;
@@ -493,13 +523,11 @@ background: url(https://gitee.com/cnnc/pic-go-picture-bed/raw/master/img/H3342af
 }
 
 .tip.ban:before {
-    background: -webkit-gradient(
-            linear,
+    background: -webkit-gradient(linear,
             left bottom,
             left top,
             from(#ff3838),
-            to(#ce4617)
-    );
+            to(#ce4617));
     background: -webkit-linear-gradient(bottom, #ff3838, #d23e49);
     background: linear-gradient(0deg, #ff3838, #ff1022);
     content: "\f05e";
@@ -508,12 +536,10 @@ background: url(https://gitee.com/cnnc/pic-go-picture-bed/raw/master/img/H3342af
 
 .tip.home {
     background: #15e5ff;
-    background: -webkit-gradient(
-            linear,
+    background: -webkit-gradient(linear,
             left top,
             right top,
-            from(#5bc6d4) to(#0ec0ef)
-    );
+            from(#5bc6d4) to(#0ec0ef));
     background: -webkit-linear-gradient(left, #0ec0ef, #80e0f9);
     background: linear-gradient(90deg, #0ec0ef, #80e0f7);
     text-shadow: 0 -1px #0ec0ef;
@@ -522,12 +548,10 @@ background: url(https://gitee.com/cnnc/pic-go-picture-bed/raw/master/img/H3342af
 }
 
 .tip.home:before {
-    background: -webkit-gradient(
-            linear,
+    background: -webkit-gradient(linear,
             left bottom,
             left top,
-            form(#0ec0ee) to(#0ee0cc)
-    );
+            form(#0ec0ee) to(#0ee0cc));
     background: -webkit-linear-gradient(bottom, #0ec0ee, #0ec2ee);
     background: linear-gradient(0deg, #0ec0ee, #0ec0ea);
     content: "\f015";
@@ -536,13 +560,11 @@ background: url(https://gitee.com/cnnc/pic-go-picture-bed/raw/master/img/H3342af
 
 .tip.important {
     background: #f3a700;
-    background: -webkit-gradient(
-            linear,
+    background: -webkit-gradient(linear,
             left top,
             right top,
             from(#ffbd2b),
-            to(#ffbd2b)
-    );
+            to(#ffbd2b));
     background: -webkit-linear-gradient(left, #ffbd2b, #ffd26f);
     background: linear-gradient(290deg, #ef6e6e, #ffb000);
     text-shadow: 0 -1px #a97a12;
@@ -551,13 +573,11 @@ background: url(https://gitee.com/cnnc/pic-go-picture-bed/raw/master/img/H3342af
 }
 
 .tip.important:before {
-    background: -webkit-gradient(
-            linear,
+    background: -webkit-gradient(linear,
             left bottom,
             left top,
             from(#ff3838),
-            to(#ffbd2b)
-    );
+            to(#ffbd2b));
     background: -webkit-linear-gradient(bottom, #ff3838, #ffbd2b);
     background: linear-gradient(270deg, #ffbd2b, #f5626d);
     content: "\f129";
@@ -566,13 +586,11 @@ background: url(https://gitee.com/cnnc/pic-go-picture-bed/raw/master/img/H3342af
 
 .tip.ref {
     background: #00a9ff;
-    background: -webkit-gradient(
-            linear,
+    background: -webkit-gradient(linear,
             left top,
             right top,
             from(#51a7bd33),
-            to(#c7eef9)
-    );
+            to(#c7eef9));
     background: -webkit-linear-gradient(left, #53cff1, #2e9fbd);
     background: linear-gradient(230deg, #47c0e0, #2dc342);
     text-shadow: 0 -1px #1bcdfc;
@@ -581,13 +599,11 @@ background: url(https://gitee.com/cnnc/pic-go-picture-bed/raw/master/img/H3342af
 }
 
 .tip.ref:before {
-    background: -webkit-gradient(
-            linear,
+    background: -webkit-gradient(linear,
             left bottom,
             left top,
             from(#00c3f7),
-            to(#88d3e6)
-    );
+            to(#88d3e6));
     background: -webkit-linear-gradient(bottom, #83e5ff, #0aa8d2);
     background: linear-gradient(270deg, #40c0e2, #3dc550);
     content: "\f021";
@@ -596,13 +612,11 @@ background: url(https://gitee.com/cnnc/pic-go-picture-bed/raw/master/img/H3342af
 
 .tip.ffa {
     background: #1502ff;
-    background: -webkit-gradient(
-            linear,
+    background: -webkit-gradient(linear,
             left top,
             right top,
             from(#51a7bd33),
-            to(#8379ff)
-    );
+            to(#8379ff));
     background: -webkit-linear-gradient(left, #5246e2, #5246e2);
     background: linear-gradient(230deg, #40c0e2, #5247e2);
     text-shadow: 0 -1px #8278fd;
@@ -611,13 +625,11 @@ background: url(https://gitee.com/cnnc/pic-go-picture-bed/raw/master/img/H3342af
 }
 
 .tip.ffa:before {
-    background: -webkit-gradient(
-            linear,
+    background: -webkit-gradient(linear,
             left bottom,
             left top,
             from(#3020f3),
-            to(#b1abf5)
-    );
+            to(#b1abf5));
     background: -webkit-linear-gradient(bottom, #5246e2, #5246e2);
     background: linear-gradient(560deg, #40c0e2, #5246e2);
     content: "\f085";
@@ -626,13 +638,11 @@ background: url(https://gitee.com/cnnc/pic-go-picture-bed/raw/master/img/H3342af
 
 .tip.key {
     background: #25c33b;
-    background: -webkit-gradient(
-            linear,
+    background: -webkit-gradient(linear,
             left top,
             right top,
             from(#51a7bd33),
-            to(#8379ff)
-    );
+            to(#8379ff));
     background: -webkit-linear-gradient(left, #648798, #90a4ae);
     background: linear-gradient(230deg, #90a4ae, #b7a7a7);
     text-shadow: 0 -1px #c1c0d4;
@@ -641,13 +651,11 @@ background: url(https://gitee.com/cnnc/pic-go-picture-bed/raw/master/img/H3342af
 }
 
 .tip.key:before {
-    background: -webkit-gradient(
-            linear,
+    background: -webkit-gradient(linear,
             left bottom,
             left top,
             from(#dddce8),
-            to(#b1abf5)
-    );
+            to(#b1abf5));
     background: -webkit-linear-gradient(bottom, #5246e2, #5246e2);
     background: linear-gradient(560deg, #bccdd2, #cfced4);
     content: "\f084";
@@ -656,13 +664,11 @@ background: url(https://gitee.com/cnnc/pic-go-picture-bed/raw/master/img/H3342af
 
 .tip.socd {
     background: #25c33b;
-    background: -webkit-gradient(
-            linear,
+    background: -webkit-gradient(linear,
             left top,
             right top,
             from(#51a7bd33),
-            to(#8379ff)
-    );
+            to(#8379ff));
     background: -webkit-linear-gradient(left, #648798, #90a4ae);
     background: linear-gradient(230deg, #ffaa0d, #deb455);
     text-shadow: 0 -1px #c1c0d4;
@@ -671,13 +677,11 @@ background: url(https://gitee.com/cnnc/pic-go-picture-bed/raw/master/img/H3342af
 }
 
 .tip.socd:before {
-    background: -webkit-gradient(
-            linear,
+    background: -webkit-gradient(linear,
             left bottom,
             left top,
             from(#dddce8),
-            to(#b1abf5)
-    );
+            to(#b1abf5));
     background: -webkit-linear-gradient(bottom, #5246e2, #5246e2);
     background: linear-gradient(560deg, #f9ae07, #ffb615);
     content: "\f0f3";
@@ -760,3 +764,4 @@ background: url(https://gitee.com/cnnc/pic-go-picture-bed/raw/master/img/H3342af
     -webkit-animation: passing 2s linear infinite;
     animation: passing 2s linear infinite;
 } */
+
