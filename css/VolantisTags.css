@@ -38,7 +38,7 @@ img {
 
 
 [data-theme='dark'] #page-header {
-  background-color: rgba(255, 255, 255, 0);
+    background-color: rgba(255, 255, 255, 0);
 }
 
 [data-theme='dark'] #page-header:before {
@@ -765,3 +765,15 @@ img {
     animation: passing 2s linear infinite;
 } */
 
+.author-info__description {
+    vertical-align: middle;
+    text-align: left;
+    line-height: 25px;
+}
+
+.announcement_content {
+    vertical-align: middle;
+    text-align: left;
+    text-indent: 24px;
+    line-height: 25px;
+}
