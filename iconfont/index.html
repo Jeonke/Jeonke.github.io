@@ -1,0 +1,650 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Iconfont图标库 | ITCN</title><meta name="description" content="功能简介• iconfont web 在线预览工具，无需安装，打开即用。 • 可预览本地 ttf 文件中定义的所有 icon。  也支持预览 阿里iconfont 中的三种模式，unicode，Font class，Symbol。根据在线字体链接即可解析预览其定义的所有icon。图标库       body::-webkit-scrollbar { display: none}   p {"><meta name="author" content="Jeonke"><meta name="copyright" content="Jeonke"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://itcnw3c.com/iconfont/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="website"><meta property="og:title" content="Iconfont图标库"><meta property="og:url" content="https://itcnw3c.com/iconfont/"><meta property="og:site_name" content="ITCN"><meta property="og:description" content="功能简介• iconfont web 在线预览工具，无需安装，打开即用。 • 可预览本地 ttf 文件中定义的所有 icon。  也支持预览 阿里iconfont 中的三种模式，unicode，Font class，Symbol。根据在线字体链接即可解析预览其定义的所有icon。图标库       body::-webkit-scrollbar { display: none}   p {"><meta property="og:image" content="https://itcnw3c.com/img/cover/th11.jpg"><meta property="article:published_time" content="2020-08-06T04:56:27.000Z"><meta property="article:modified_time" content="2022-09-02T05:54:15.622Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+  }
+}
+
+var getCookies = function (name) {
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop().split(';').shift()
+}
+
+var autoChangeMode = 'true'
+var t = getCookies('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (Cookies.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: {"limitDay":700,"position":"top","messagePrev":"自上次更新至今已有","messageNext":"天，文章内容可能已过时。"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: true,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: {"bookmark":{"message_prev":"按","message_next":"键将本页加入书签"},"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"top-center"},
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isanchor: false    
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: false,
+  isHighlightShrink: false,
+  isSidebar: false,
+  postUpdate: '2022-09-02 13:54:15'
+}</script><noscript><style>
+#nav {
+  opacity: 1
+}
+.justified-gallery img {
+  opacity: 1
+}
+</style></noscript><link rel="stylesheet" href="/css/VolantisTags.css"><link rel="stylesheet" href="/css/volantis.css"><link rel="stylesheet" href="/css/fontAnimation.css"><meta name="generator" content="Hexo 6.0.0"><link rel="alternate" href="/atom.xml" title="ITCN" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" data-lazy-src="https://raw.githubusercontent.com/Jeonke/PicGoPictureBed/master/img/Sitich/Sitich06.gif" onerror="onerror=null;src='/img/404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">6</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">3</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">9</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home faa-shake animated"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> 看文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/bangumis/"><i class="fa-fw fas fa-star-of-david faa-spin animated"></i><span> 动漫</span></a></li><li><a class="site-page" href="/photos/"><i class="fa-fw fas fa-camera-retro"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-link"></i><span> 链接库</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page" href="https://itcnw3c.com/"><i class="fa-fw fas fa-cat"></i><span> 导航页</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart card-announcement-animation"></i><span> 关注我</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/about/"><i class="fa-fw fa fa-heartbeat card-announcement-animation"></i><span> 关于我</span></a></li><li><a class="site-page" href="/contact/"><i class="fa-fw fas fa-paper-plane faa-bounce animated"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-paint-brush"></i><span> 工具库</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/iconfont/"><i class="fa-fw fas fa-certificate"></i><span> Iconfont库</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/icb/"><i class="fa-fw fas fa-comment-dots"></i><span> ICB备案</span></a></div></div></div></div><div id="body-wrap"><div id="web_bg" data-type="color"></div><header class="not-index-bg" id="page-header"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="https://itcnw3c.com">ITCN<img class="logo-img" src="/img/logo.png" alt="LOGO"/></a></span><span class="pull-right menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home faa-shake animated"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> 看文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/bangumis/"><i class="fa-fw fas fa-star-of-david faa-spin animated"></i><span> 动漫</span></a></li><li><a class="site-page" href="/photos/"><i class="fa-fw fas fa-camera-retro"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-link"></i><span> 链接库</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page" href="https://itcnw3c.com/"><i class="fa-fw fas fa-cat"></i><span> 导航页</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart card-announcement-animation"></i><span> 关注我</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/about/"><i class="fa-fw fa fa-heartbeat card-announcement-animation"></i><span> 关于我</span></a></li><li><a class="site-page" href="/contact/"><i class="fa-fw fas fa-paper-plane faa-bounce animated"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-paint-brush"></i><span> 工具库</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/iconfont/"><i class="fa-fw fas fa-certificate"></i><span> Iconfont库</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/icb/"><i class="fa-fw fas fa-comment-dots"></i><span> ICB备案</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="page_site-info"><h1 id="site_title">Iconfont图标库</h1></div></header><main class="layout_page hide-aside" id="content-inner"><div id="page"><div id="article-container"><h2 id="功能简介"><a href="#功能简介" class="headerlink" title="功能简介"></a>功能简介</h2><pre><code>• iconfont web 在线预览工具，无需安装，打开即用。
+• 可预览本地 ttf 文件中定义的所有 icon。
+</code></pre>
+<h4 id="也支持预览-阿里iconfont-中的三种模式，unicode，Font-class，Symbol。根据在线字体链接即可解析预览其定义的所有icon。"><a href="#也支持预览-阿里iconfont-中的三种模式，unicode，Font-class，Symbol。根据在线字体链接即可解析预览其定义的所有icon。" class="headerlink" title="也支持预览 阿里iconfont 中的三种模式，unicode，Font class，Symbol。根据在线字体链接即可解析预览其定义的所有icon。"></a>也支持预览 <a target="_blank" rel="noopener" href="https://www.iconfont.cn/"><em><strong>阿里iconfont</strong></em></a> 中的三种模式，unicode，Font class，Symbol。根据在线字体链接即可解析预览其定义的所有icon。</h4><h2 id="图标库"><a href="#图标库" class="headerlink" title="图标库"></a>图标库</h2><hr>
+
+  <style>
+  body::-webkit-scrollbar { display: none}
+  p {
+    margin: 0;
+  }
+  [v-cloak] {
+    display: none;
+  }
+  #app {
+    text-align: center;
+    padding: 10px 50px 80px;
+  }
+  .p-action {
+    margin: 20px auto;
+    max-width: 1100px;
+    width: 100%;
+    font-size: 35px;
+    text-align: center;
+    font-weight: bold;
+  }
+  .p-reset, .p-copy-type {
+    padding: 8px 20px;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid #aaaaaa;
+    background-color: #3D8AC7;
+    opacity: 1;
+    transition: 0.3s all;
+  }
+  .p-reset:hover, .p-copy-type:hover {
+    opacity: 0.9;
+  }
+  .p-copy-type {
+  }
+  .p-github, .p-other {
+    position: fixed;
+    right: 50px;
+    bottom: 70px;
+    background-color: #eff3f6;
+    background-image: linear-gradient(-180deg, #fafbfc, #eff3f6 90%);
+    color: #24292e;
+    border: 1px solid rgba(27, 31, 35, .2);
+    border-radius: 3px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    padding: 6px 12px;
+  }
+  .p-help {
+    position: fixed;
+    right: 50px;
+    top: 50px;
+    width: 30px;
+    height: 30px;
+    color: #666666;
+    z-index: 2;
+    line-height: 30px;
+    font-weight: bolder;
+    border-radius: 50%;
+    border: 1px solid rgba(27, 31, 35, .2);
+    cursor: pointer;
+    background-color: #eff3f6;
+    background-image: linear-gradient(-180deg, #fafbfc, #eff3f6 90%);
+  }
+  .p-github:hover, .p-other:hover, .p-help {
+    opacity: 0.9;
+  }
+  .p-other {
+    bottom: 30px;
+  }
+  .p-input-container {
+    display: flex;
+    padding-top: 50px;
+  }
+  .p-input-container .line {
+    vertical-align: top;
+    width: 5px;
+    height: 400px;
+    transform-origin: top;
+    background-repeat: repeat;
+    background-image: url(https://raw.githubusercontent.com/Jeonke/PicGoPictureBed/master/img/icon-dotted-y.png);
+  }
+  .p-input-container .url-box, .file-box {
+    height: 300px;
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .p-input-container .url-box input {
+    margin-bottom: 30px;
+    display: block;
+    width: 280px;
+    padding: 10px;
+    font-size: 24px;
+    border-radius: 4px;
+    box-shadow: none;
+    color: #444444;
+    border: 1px solid #cccccc;
+  }
+  .p-input-container .input-box, .url-box div {
+    position: relative;
+    display: inline-block;
+    height: 50px;
+    padding: 0px 30px;
+    font-size: 25px;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid #aaaaaa;
+    background-color: #3D8AC7;
+    opacity: 1;
+    transition: 0.3s all;
+  }
+  .p-input-container .input-box:hover, .url-box div:hover {
+    opacity: 0.9;
+  }
+  .p-input-container .input-box input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+  .p-input-container .url-box div {
+    width: 240px;
+  }
+  .p-icon-item {
+    margin: 6px;
+    color: #060606;
+    padding: 10px 6px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid #dddddd;
+    overflow: hidden;
+    box-sizing: border-box;
+    background-color: #FCFCFC;
+    transition-duration: .4s;
+    transition-property: background, box-shadow;
+  }
+  .p-icon-item:hover {
+    background: #ffffff;
+    border-color: transparent;
+    box-shadow: 0 5px 18px 0 rgba(0, 0, 0, 0.3);
+  }
+  .p-icon-item:active {
+    color: white;
+    background: #7BD784;
+  }
+  .p-icon-item .iconfont {
+    margin: 0 20px;
+    padding: 6px;
+    border-radius: 4px;
+    font-size: 28px;
+  }
+  .p-icon-item .name {
+    font-size: 12px;
+    font-weight: bold;
+  }
+  .p-icon-item .value {
+    font-size: 12px;
+    font-weight: bold;
+  }
+  .p-icon-item svg {
+    width: 36px;
+    height: 36px;
+  }
+  </style>
+</head>
+<body>
+<section id="app" v-cloak>
+  <section class="p-action g-box">{{tips}}</section>
+  <div v-if="iconList.length > 0" class="p-copy-type" @click="copyType = copyType === 'value' ? 'name' : 'value'">复制 {{ copyType }}</div>
+  <div v-if="iconList.length > 0" class="p-reset" @click="reload">重新载入</div>
+  <section class="p-input-container" v-if="iconList.length === 0">
+    <div class="url-box">
+      <input type="text" v-model="url" accept=".ttf" placeholder="在线 ttf、css 或 js 链接">
+      <div class="" @click="getURLFile">预览</div>
+    </div>
+    <div class="line"></div>
+    <div class="file-box">
+      <div class="input-box" v-if="iconList.length === 0">
+        <label>解析本地 ttf 文件</label>
+        <input type="file" @change="getLocalTTF" accept=".ttf">
+      </div>
+    </div>
+  </section>
+  <section v-else>
+    <div v-for="item in iconList" class="p-icon-item" @click="copyToClipboard(item[copyType])">
+      <svg v-if="isSymbol" class="icon" aria-hidden="true" v-html="`<use xlink:href='${item.value}'></use>`"></svg>
+      <p v-else class="iconfont" v-html="isCSS ? '' : item.value" :class="isCSS ? item.name : '' "></p>
+      <p class="name">{{item.name}}</p>
+      <p class="value">{{item.value}}</p>
+    </div>
+  </section>
+</section>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/opentype.js@latest/dist/opentype.min.js"></script>
+<script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+<script>
+
+new Vue({
+  el: '#app',
+
+  data() {
+    return {
+      url: '//at.alicdn.com/t/font_115436_oecfnfpwhk.css',
+      tips: '请选择字体文件源', 
+      timeouter: 0,
+      copyType: 'value', 
+      isSymbol: false,
+      isCSS: false,
+      iconList: [], 
+    }
+  },
+
+  methods: {
+    ajax(options) {
+      options = options || {};
+      let xhr = new XMLHttpRequest();
+      if (options.type === 'buffer') {
+        xhr.responseType = 'arraybuffer';
+      }
+
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          let status = xhr.status;
+          if (status >= 200 && status < 300) {
+            console.log(xhr)
+            options.success && options.success(xhr.response);
+          } else {
+            options.fail && options.fail(status);
+          }
+        }
+      };
+
+      xhr.open("GET", options.url, true);
+      xhr.send(null);
+    },
+    getURLFile() {
+      if (!this.url) {
+        return
+      }
+
+      if (this.url.toLowerCase().indexOf('.ttf') !== -1) {
+        this.getOnlineTTF()
+      } else if (this.url.toLowerCase().indexOf('.css') !== -1) {
+        this.getOnlineCSS()
+      } else if (this.url.toLowerCase().indexOf('.js') !== -1) {
+        this.getOnlineJS()
+      }
+
+    },
+    // 解析本地 ttf 文件
+    getLocalTTF(event) {
+      // 解析文件内容
+      let file = event.target.files[0]
+      let reader = new FileReader();
+      reader.readAsArrayBuffer(file);
+      reader.onload = (evt) => { this.parseIcon(evt.target.result); }
+
+      // base64 编码，动态加入 @font-face
+      let readerBase64 = new FileReader();
+      readerBase64.readAsDataURL(file)
+      readerBase64.onload = (evt) => { this.setStyle(evt.target.result) }
+
+    },
+
+    // 解析在线 ttf 文件
+    getOnlineTTF() {
+      // 远程获取文件
+      this.ajax({
+        url: this.url,
+        type: 'buffer',
+        success: (params) => { this.parseIcon(params) }
+      })
+
+      this.setStyle(this.url)
+    },
+
+    // 解析 CSS 文件
+    getOnlineCSS() {
+      // 远程获取文件
+      this.isCSS = true;
+      this.ajax({
+        url: this.url,
+        success: (params) => {
+          this.setStyle('', params)
+          params.replace(/\.([^:^ ]+):[\s\S]+?content: "\\([^"]+)";/gi, (...item) => {
+            this.iconList.push({
+              name: item[1],
+              value: `&#${item[2]};`,
+            })
+          })
+        }
+      })
+    },
+
+    // 解析 JS 文件
+    getOnlineJS() {
+      // 远程获取文件
+      this.isSymbol = true;
+      this.ajax({
+        url: this.url,
+        success: (params) => {
+          let $script = document.createElement('script')
+          $script.src = this.url
+          document.body.append($script);
+          console.log(params)
+
+          //id="iconexchange"
+          params.replace(/id="([^"]+)"/gi, (...item) => {
+            this.iconList.push({
+              name: item[1].replace(/icon/, ''),
+              value: `#${item[1]}`,
+            })
+          })
+        }
+      })
+    },
+
+    // 解析icon
+    parseIcon(bufferStr) {
+      let result = window.opentype.parse(bufferStr);
+      for (let key in result.glyphs.glyphs) {
+        let item = result.glyphs.glyphs[key]
+        item.unicode && this.iconList.push({
+          name: item.name,
+          value: `&#${item.unicode};`
+        })
+      }
+      this.tips = '点击复制icon代码'
+    },
+
+    // 添加style
+    setStyle(url, cssFile) {
+      let $style = document.createElement('style')
+      if (cssFile) {
+        $style.innerHTML = cssFile
+      } else {
+        $style.innerHTML = `
+        @font-face {
+  font-family: 'iconfont';
+  src: url('${url}') format('truetype');
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 24px;font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}`;
+      }
+
+      document.body.append($style);
+    },
+
+    // 拷贝剪切板
+    copyToClipboard(content) {
+      clearTimeout(this.timeouter)
+      this.tips = `复制成功: ${content}`
+      this.timeouter = setTimeout(() => {this.tips = `点击复制icon代码`}, 1000)
+
+      if (!document.queryCommandSupported('copy')) {
+        return false
+      }
+
+      let $input = document.createElement('input')
+      $input.style.opacity = '0'
+      $input.value = content
+      document.body.appendChild($input)
+      $input.select()
+
+      const result = document.execCommand('copy')
+      document.body.removeChild($input)
+      $input = null
+
+      return result
+    },
+
+    // 页面重新加载
+    reload() {
+      location.reload();
+    }
+  }
+})
+</script>
+</div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div class="comment-switch"><span class="first-comment">MiniValine</span><label><input id="switch-comments-btn" type="checkbox"/><span class="slider"></span></label><span class="second-comment">Valine</span></div></div><div class="comment-wrap"><div><div class="comment" id="vcomments"></div></div><div><div class="vcomment" id="vcomment"></div></div></div></div></div></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2018 - 2022 <i id="heartbeat" style="color:#f50505" class="fa fa-heartbeat"></i> <a target="_blank" rel="noopener" href='https://github.com/Jeonke'>Jeonke</a></div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="icp"><a href="/icb/itcnw3c.com/#/"><img class="icp-icon" src="/img/icp.png"/><span>ICB证DSTGO008号</span></a></div></div></footer><script>var bg_index = Math.floor(Math.random() * 17);var res = 'background-image: url("/img/min/' + bg_index + '-min.jpg"); background-repeat:no-repeat; background-size: cover;';document.getElementById('web_bg').style = res</script></div><section id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button id="chat_btn" type="button" title="联系我"><i class="fas fa-sms"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script>var endLoading = function () {
+  document.body.style.overflow = 'auto';
+  document.getElementById('loading-box').classList.add("loaded")
+}
+window.addEventListener('load',endLoading)</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    loader: {
+      source: {
+        '[tex]/amsCd': '[tex]/amscd'
+      }
+    },
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  var script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><script>if (document.getElementsByClassName('mermaid').length) {
+  if (window.mermaidJsLoad) mermaid.init()
+  else {
+    $.getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js', function () {
+      window.mermaidJsLoad = true
+      mermaid.initialize({
+        theme: 'default',
+      })
+      false && mermaid.init()
+    })
+  }
+}</script><script>function loadMiniValine () {
+    function initMiniValine() {
+        window.minivaline = new MiniValine({
+            el: '#vcomments',
+            master: 'a528a4385a003c5b624e3f198f0b00f4',
+            appId: '57Wt2pH1gc6zm4hwjoiHqera-gzGzoHsz',
+            appKey: 'B989dIG8QU9HskQUID8EHsPc',
+            placeholder: '建议使用QQ邮箱，评论头像采用QQ头像',
+            lang: 'zh-CN',
+            adminEmailMd5: 'a528a4385a003c5b624e3f198f0b00f4',
+            math: 'true',
+            md: 'true',
+        });
+    }
+
+    if (typeof MiniValine === 'function') initMiniValine()
+    else $.getScript('https://cdn.jsdelivr.net/npm/minivaline@4/dist/MiniValine.min.js', initMiniValine)
+}
+
+if ('MiniValine' === 'MiniValine' || !false) {
+    if (false) loadComment(document.querySelector('#vcomments'),loadMiniValine)
+    else loadMiniValine()
+} else {
+    function loadOtherComment () {
+        loadMiniValine()
+    }
+}</script><script>function loadValine () {
+  function initValine () {
+    window.valine = new Valine({
+      el: '#vcomment',
+      master: 'a528a4385a003c5b624e3f198f0b00f4',
+      appId: '57Wt2pH1gc6zm4hwjoiHqera-gzGzoHsz',
+      appKey: 'B989dIG8QU9HskQUID8EHsPc',
+      placeholder: '建议使用QQ邮箱，评论头像采用QQ头像',
+      avatar: 'mp',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'zh-CN',
+      recordIP: true,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+    });
+    if ('nick,mail') { valine.config.requiredFields= 'nick,mail'.split(',') }
+  }
+
+  if (typeof Valine === 'function') initValine()
+  else $.getScript('https://cdn.jsdelivr.net/gh/HCLonely/Valine@latest/dist/Valine.min.js', initValine)
+}
+
+if ('MiniValine' === 'Valine' || !false) {
+  if (false) loadComment(document.querySelector('#vcomment'),loadValine)
+  else setTimeout(() => loadValine(), 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/js/VolantisTags.js"></script><script src="/js/volantis.js"></script><script defer="defer" id="ribbon_piao" mobile="true" src="/js/third-party/piao.js"></script><script id="canvas_snow3" defer="defer" src="/js/third-party/snow3.js"></script><script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/330e82e3.js","daovoice")
+</script><script>var isChatBtn = true
+daovoice('init', {
+  app_id: '330e82e3',},{
+  launcher: { 
+     disableLauncherIcon: isChatBtn // 悬浮 ICON 是否显示
+  },
+});
+daovoice('update');
+
+if (isChatBtn) {
+  var chatBtnFn = () => {
+    var chatBtn = document.getElementById("chat_btn")
+    chatBtn.addEventListener("click", function(){
+      daovoice('show')
+    });
+  }
+  chatBtnFn()
+} else {
+  if (true) {
+    function chatBtnHide () {
+      daovoice('update', {},{
+        launcher: { 
+        disableLauncherIcon: true // 悬浮 ICON 是否显示
+        },
+      });
+    }
+    function chatBtnShow () {
+      daovoice('update', {},{
+        launcher: { 
+        disableLauncherIcon: false // 悬浮 ICON 是否显示
+        },
+      });
+    }
+  }
+}</script></div></body></html>
