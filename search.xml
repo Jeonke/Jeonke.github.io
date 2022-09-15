@@ -1,120 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Nacos配置中心</title>
-    <url>/2018/12/24/spring-cloud-alibaba-1/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="一、Nacos配置中心"><a href="#一、Nacos配置中心" class="headerlink" title="一、Nacos配置中心"></a>一、Nacos配置中心</h2><p>上文我们介绍了Nacos作为注册中心的简单实用：<a href="/2018/12/23/spring-cloud-alibaba/">SpringCloud Alibaba——Alibaba与Nacos服务注册与发现</a>，本文我们来聊一聊Nacos的另外一个功能：分布式系统的配置中心。  </p>
-<p>   什么是配置中心？分布式&#x2F;微服务的架构，每个业务模块必然是多节点多主机的，那么他们之间配置文件的统一管理就显得十分有必要。配置中心即这样一个多节点系统的唯一配置中心，大家需要的配置文件都存放在我这里。 </p>
-<p>  <em>并且每个人还可以存放多个版本的配置文件，按需获取，比如A节点可以有开发环境的配置文件、UAT环境配置文件、生产环境配置文件等多个版本。</em></p>
-<h2 id="二、项目中配置"><a href="#二、项目中配置" class="headerlink" title="二、项目中配置"></a>二、项目中配置</h2><ol>
-<li>在业务项目中（或我们之前demo mall项目中 ）增加pom.xml文件的依赖。</li>
-</ol>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">&lt;!--</span> <span class="string">使用Nacos</span> <span class="string">Config</span> <span class="string">--&gt;</span></span><br><span class="line"><span class="string">&lt;dependency&gt;</span></span><br><span class="line">    <span class="string">&lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt;</span></span><br><span class="line">    <span class="string">&lt;artifactId&gt;spring-cloud-starter-alibaba-nacos-config&lt;/artifactId&gt;</span></span><br><span class="line"><span class="string">&lt;/dependency&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>删除原有 application.yml或application.properties。<br> application.properties的配置我们将挪动到配置中心，稍后配置。</li>
-<li>新建并配置bootstrap.properties文件。<br> bootstrap.properties文件会先于application.properties。在这里配置的是获取nacos配置的相关信息。</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># nacos地址</span></span><br><span class="line">spring.cloud.nacos.config.server-addr=127.0.0.1:8848</span><br><span class="line"><span class="comment"># 配置中心对应的配置文件所属的组，稍后在Nacos中创建文件时对应。</span></span><br><span class="line">spring.cloud.nacos.config.group=mall:order </span><br><span class="line">spring.application.name=order </span><br><span class="line"><span class="comment"># 配置中心存放的对应文件命名规则为： spring.application.name-spring.profiles.active</span></span><br><span class="line">spring.profiles.active=dev </span><br><span class="line"><span class="comment"># spring.profiles.active=prod</span></span><br></pre></td></tr></table></figure>
-
-
-<ol start="4">
-<li>在Nacos控制台配置对应的配置文件（Nacos也支持用代码推送配置文件到配置中心，方便运维）。<br> <img src= "/img/loading.gif" data-lazy-src="https://raw.githubusercontent.com/Jeonke/PicGoPictureBed/master/img/20200825165613.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1OTQ2OTY5,size_16,color_FFFFFF,t_70" alt="图1"><br>*注意，项目中配置的name&#x2F;active&#x2F;id需要和这里的dataid、group对应起来。 *</li>
-<li>运行项目，可以看到项目按照到配置中心配置的8081端口运行。并且在注册中心可以看到该项目节点。<br><img src= "/img/loading.gif" data-lazy-src="https://raw.githubusercontent.com/Jeonke/PicGoPictureBed/master/img/20200825165755.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1OTQ2OTY5,size_16,color_FFFFFF,t_70" alt="图2"><br><img src= "/img/loading.gif" data-lazy-src="https://raw.githubusercontent.com/Jeonke/PicGoPictureBed/master/img/20200825170021.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1OTQ2OTY5,size_16,color_FFFFFF,t_70" alt="图3"></li>
-</ol>
-]]></content>
-      <categories>
-        <category>SpringCloud Alibaba</category>
-        <category>Nacos配置中心</category>
-      </categories>
-      <tags>
-        <tag>SpringCloud Alibaba</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Sentinel流量防卫兵介绍、流量控制</title>
-    <url>/2018/12/24/spring-cloud-alibaba-2/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="一、Sentinel是什么？"><a href="#一、Sentinel是什么？" class="headerlink" title="一、Sentinel是什么？"></a>一、Sentinel是什么？</h2><p>  Sentinel是<strong>分布式系统的流量防卫兵</strong>！  </p>
-<p>  什么意思呢？ 在分布式系统中，各个节点之间往往会存在调用关系。比如电商系统中，<strong>订单节点A</strong>需要调用<strong>库存节点B</strong>的减库存接口，但是在<strong>库存节点B</strong>挂掉了，或者<strong>库存节点B</strong>负载极高，短时间内无法response，就可能导致订单节点也跟着异常或停滞。</p>
-<p>   为了防止这种，节点B挂掉（或停滞）导致节点A挂掉（或停滞），又进一步导致其他节点一同发生连锁反应，<strong>Hystrix闪亮登场</strong>。</p>
-<p>  嗯……说好的Sentinel，Hystrix是个什么鬼？</p>
-<p>   在SpringCloud的家族里面，Netflix公司开源的Hystrix才是老牌选手，具有“熔断、服务降级、近实时服务监控”的能力。Sentinel则是随着新生代（SpringCloud Alibaba）一同登场的“QPS可控、支撑近十年阿里巴巴双11”的强劲新人（<a href="https://www.cnblogs.com/zhyg/p/11474406.html">对两者区别有兴趣可以看看这里</a>）。</p>
-<p>   为了更好的理解Sentinel，我们先来看一下Sentinel最基本的功能——限流。</p>
-<h2 id="二、Sentinel-Dashboard"><a href="#二、Sentinel-Dashboard" class="headerlink" title="二、Sentinel Dashboard"></a>二、Sentinel Dashboard</h2><p>  Sentinel可视化控制台，我们可以在上面看到已连接服务的一些监控信息。</p>
-<ol>
-<li>下载Sentinel dashboard包。</li>
-</ol>
-<pre><code>[https://github.com/alibaba/Sentinel/releases](https://github.com/alibaba/Sentinel/releases) 可见所有版本的jar包。
-</code></pre>
-<ol start="2">
-<li>启动dashboard。</li>
-</ol>
-<pre><code>java -Dserver.port=8080 -Dcsp.sentinel.dashboard.server=localhost:8080 -Dproject.name=sentinel-dashboard -jar sentinel-dashboard-1.7.1.jar
-![图1](https://raw.githubusercontent.com/Jeonke/PicGoPictureBed/master/img/20200826095816.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1OTQ2OTY5,size_16,color_FFFFFF,t_70)
-</code></pre>
-<ol start="3">
-<li>访问localhost:8080，用户名密码全部默认sentinel。<br> <img src= "/img/loading.gif" data-lazy-src="https://raw.githubusercontent.com/Jeonke/PicGoPictureBed/master/img/20200826101344.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1OTQ2OTY5,size_16,color_FFFFFF,t_70" alt="图2"><ol start="4">
-<li>进入dashboard，可以看到这里有某个服务的QPS数据（图中是Sentinel Dashboard自身的服务接口），左侧菜单栏里面可以配置流量控制规则、服务降级规则、热点数据规则。<br> <img src= "/img/loading.gif" data-lazy-src="https://raw.githubusercontent.com/Jeonke/PicGoPictureBed/master/img/20200826101513.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1OTQ2OTY5,size_16,color_FFFFFF,t_70" alt="图3"></li>
-</ol>
-</li>
-</ol>
-<h2 id="三、Sentinel-接入端"><a href="#三、Sentinel-接入端" class="headerlink" title="三、Sentinel 接入端"></a>三、Sentinel 接入端</h2><p>  dashboard是一个便捷的页面管理工具，真正的Sentinel功能还是依赖在业务项目之中，我们继续在之前的Demo基础上进行扩充。</p>
-<ol>
-<li>添加依赖。<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">&lt;dependency&gt;</span></span><br><span class="line">    <span class="string">&lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt;</span></span><br><span class="line">    <span class="string">&lt;artifactId&gt;spring-cloud-starter-alibaba-sentinel&lt;/artifactId&gt;</span></span><br><span class="line"><span class="string">&lt;/dependency&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li>添加配置。（<a href="/2018/12/24/spring-cloud-alibaba-1/">上一章</a>我们介绍了可以在Nacos配置中心添加yml或properties配置，但是这里为了代码完整保存，仍然写在了bootstrap.properties中）。</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">spring.cloud.sentinel.transport.port=8121</span><br><span class="line">spring.cloud.sentinel.transport.dashboard=localhost:8080</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>添加接口并配置Sentinel资源名称：test。</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> com.alibaba.csp.sentinel.annotation.SentinelResource;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.GetMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestController</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@SentinelResource(&quot;test&quot;)</span></span><br><span class="line">    <span class="meta">@GetMapping(value = &quot;/test&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">test</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;test&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>启动application，页面访问测试接口（<em>注意：必须先访问过该接口，才能在dashboard上看到该接口的信息</em>）。</li>
-</ol>
-<pre><code>![图4](https://raw.githubusercontent.com/Jeonke/PicGoPictureBed/master/img/20200826101803.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1OTQ2OTY5,size_16,color_FFFFFF,t_70)
-</code></pre>
-<ol start="5">
-<li>查看dashboard，可以看到order项目已经被sentinel dashboard监控到了。我们可以直接在页面上配置流量限制（<em>注意：页面配置不是持久化的，之后章节我们会介绍sentinel规则持久化的方法</em>）。</li>
-</ol>
-<pre><code>![图5](https://raw.githubusercontent.com/Jeonke/PicGoPictureBed/master/img/20200826101850.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1OTQ2OTY5,size_16,color_FFFFFF,t_70)
-</code></pre>
-<ol start="6">
-<li>测试 流量限制，设置test接口的QPS 单机阈值为1.</li>
-</ol>
-<pre><code>![图6](https://raw.githubusercontent.com/Jeonke/PicGoPictureBed/master/img/20200826101957.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1OTQ2OTY5,size_16,color_FFFFFF,t_70)
-</code></pre>
-<ol start="7">
-<li>测试 流量限制，连续访问test接口两次，发现第二次接口不可达，测试成功。</li>
-</ol>
-<pre><code>![图7](https://raw.githubusercontent.com/Jeonke/PicGoPictureBed/master/img/20200826102041.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1OTQ2OTY5,size_16,color_FFFFFF,t_70)
-![图8](https://raw.githubusercontent.com/Jeonke/PicGoPictureBed/master/img/20200826102122.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1OTQ2OTY5,size_16,color_FFFFFF,t_70)
-</code></pre>
-<h2 id="四、热点规则-x2F-服务降级规则"><a href="#四、热点规则-x2F-服务降级规则" class="headerlink" title="四、热点规则&#x2F;服务降级规则"></a>四、热点规则&#x2F;服务降级规则</h2><p>  除了流量控制，sentinel还支持热点流量控制、服务降级规则配置等</p>
-<h3 id="热点规则"><a href="#热点规则" class="headerlink" title="热点规则"></a>热点规则</h3><p>   热点规则是对接口规则的更细化的控制，可以通过对参数进行流量控制，比如将test方法改造为带参数的方法（如下代码），然后配置热点规则的参数索引、单机阈值、统计窗口长度（如下图），则可以按照参数限制。<br>   <em>限制规则：按照索引下标选择限制的参数，如test接口限制第一个参数name，若该参数为某值的方法连续被调用n次（如name&#x3D;”asd”在窗口长度时间内调用超过单机阈值次数），则接下来的name&#x3D;”asd”的访问请求将无法访问。</em></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@SentinelResource(&quot;test&quot;)</span></span><br><span class="line">    <span class="meta">@GetMapping(value = &quot;/test&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">test</span><span class="params">(<span class="meta">@RequestParam</span> String name)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>   <img src= "/img/loading.gif" data-lazy-src="https://raw.githubusercontent.com/Jeonke/PicGoPictureBed/master/img/20200826102304.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1OTQ2OTY5,size_16,color_FFFFFF,t_70" alt="图9"></p>
-<h3 id="降级规则"><a href="#降级规则" class="headerlink" title="降级规则"></a>降级规则</h3><p>  降级规则则是从 服务响应时间、接口异常次数、接口异常频率来评估接口，若响应过慢，或异常次数过多，则对接口进行降级。</p>
-<p> 如：test接口被限制为1分钟内异常2次就进行服务降级，服务降级3秒。测试代码及dashboard配置如下。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@SentinelResource(&quot;test&quot;)</span></span><br><span class="line">    <span class="meta">@GetMapping(value = &quot;/test&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">test</span><span class="params">(<span class="meta">@RequestParam</span> String name)</span>&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(<span class="string">&quot;asdasd&quot;</span>);<span class="comment">// 服务降级前页面会看到异常抛出asdasd，服务降级后不会有该信息</span></span><br><span class="line">        <span class="comment">//return name;</span></span><br></pre></td></tr></table></figure>
-
-<p><img src= "/img/loading.gif" data-lazy-src="https://raw.githubusercontent.com/Jeonke/PicGoPictureBed/master/img/20200826102447.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1OTQ2OTY5,size_16,color_FFFFFF,t_70" alt="图10"></p>
-<h2 id="五、Sentinel的主要功能就是容错，主要体现为下面这个三个："><a href="#五、Sentinel的主要功能就是容错，主要体现为下面这个三个：" class="headerlink" title="五、Sentinel的主要功能就是容错，主要体现为下面这个三个："></a>五、Sentinel的主要功能就是容错，主要体现为下面这个三个：</h2><h3 id="1-流量控制"><a href="#1-流量控制" class="headerlink" title="1.流量控制"></a>1.流量控制</h3><p>  流量控制在网络传输中是一个常用的概念，它用于调整网络包的数据。任意时间到来的请求往往是随机不可控的，而系统的处理能力是有限的。我们需要根据系统的处理能力对流量进行控制。Sentinel作为一个调配器，可以根据需要吧随机的请求调整成合适的形状。</p>
-<h3 id="2-熔断降级"><a href="#2-熔断降级" class="headerlink" title="2.熔断降级"></a>2.熔断降级</h3><p>   当检测到调用链路中某个资源出现不稳定的表现，例如请求响应时间长或异常比例升高的时候，则对这个资源的调用进行限制，让请求快速失败，避免影响到其他的资源而导致级联故障。<br>   Sentinel对这个问题采取了两种手段：<br>   通过并发线程数进行限制<br>   Sentinel通过限制资源并发线程的数量，来减少不稳定资源对其他资源的影响。当某个资源出现不稳定的情况下，例如响应时间变长，对资源的直接影响就是会造成线程数的逐步堆积。当线程数在特定资源堆积到一定的数量之后，对该资源的新请求就会被拒绝。堆积的线程完成任务后才开始继续接受请求。<br>   通过响应时间对资源进行降级<br>   除了对并发线程数进行控制以外，Sentinel还可以通过响应时间来快速降级不稳定的资源。当依赖的资源出现响应时间过长后，所有对资源的访问都会被直接拒绝，直到过了指定的时间窗口之后才重新恢复。</p>
-<h3 id="Sentinel和Hystrix的区别"><a href="#Sentinel和Hystrix的区别" class="headerlink" title="Sentinel和Hystrix的区别"></a>Sentinel和Hystrix的区别</h3><p>   两者的原则是一致的，都是当一个资源出现问题时，让其快速失败，不要波及到其它服务但是在限制的手段上，确采取了完全不一样的方法：<br>   Hystrix采用的是线程池隔离的方式，优点是做到了资源之间的隔离，缺点是增加了线程切换的成本。<br>   Sentinel采用的是通过并发线程的数量和响应时间来对资源做限制。</p>
-<h3 id="3-系统负载保护"><a href="#3-系统负载保护" class="headerlink" title="3.系统负载保护"></a>3.系统负载保护</h3><p>   Sentinel同时提供系统维度的自适应保护能力。当系统负载较高的时候，如果还持续让请求进入可能会导致系统崩溃，无法响应。在集群环境下，会把本应这台机器承载的流量转发到其他的机器上去。如果这个时候其它的机器也处在一个边缘状态的时候，Sentinel提供了对应的保护机制，让系统的入口流量和系统的负载达到一个平衡，保证系统在能力范围之内处理最多的请求。</p>
-<p>   总之一句话：我们需要做的事情，就是在Sentinel的资源上配置各种各样的规则，来实现各种容错的功能。Sentinel的功能很强大，不只是可以对接口进行限制，还可以让超出限制的请求去调用本地的‘失败专用接口’。而后续的‘失败专用接口’则是关乎用户体验的命脉，这一部分以及规则持久化我们下一章再来介绍。</p>
-]]></content>
-      <categories>
-        <category>SpringCloud Alibaba</category>
-        <category>Sentinel流量防卫兵介绍、流量控制</category>
-      </categories>
-      <tags>
-        <tag>SpringCloud Alibaba</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Alibaba与Nacos服务注册与发现</title>
     <url>/2018/12/23/spring-cloud-alibaba/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="SpringCloud-Alibaba"><a href="#SpringCloud-Alibaba" class="headerlink" title="SpringCloud Alibaba"></a>SpringCloud Alibaba</h3><pre><code>什么是SpringCloud Alibaba？
@@ -177,77 +63,6 @@ pom.xml文件如下：
       </categories>
       <tags>
         <tag>SpringCloud Alibaba</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2018/03/22/hello-world/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-        <category>Hello World</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Vue项目脚手架</title>
-    <url>/2018/03/27/vue-doc/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>vue-cli 是一个官方发布 vue.js 项目脚手架，使用 vue-cli 可以快速创建 vue 项目，GitHub地址是：*<a href="https://github.com/vuejs/vue-cli">https://github.com/vuejs/vue-cli</a></p>
-<h2 id="一、安装-node-js"><a href="#一、安装-node-js" class="headerlink" title="一、安装 node.js"></a>一、安装 node.js</h2><p>首先需要安装node环境，可以直接到中文官网*   <a href="http://nodejs.cn/" title="Node.js中文官网">http://nodejs.cn/</a><br>下载安装包。</p>
-<p>只是这样安装的 node 是固定版本的，如果需要多版本的 node，可以使用 nvm 安装*   <a href="http://blog.csdn.net/s8460049/article/details/52396399" title="Node.js 安装">http://blog.csdn.net/s8460049/article/details/52396399</a></p>
-<p>安装完成后，可以命令行工具中输入 <code>node -v</code> 和 <code>npm -v</code>，如果能显示出版本号，就说明安装成功。</p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://itcnw3c.github.io/ITCN/pages/Vue_files/36zfjm6o.bmp" alt="图 1"></p>
-<h2 id="二、安装-vue-cli"><a href="#二、安装-vue-cli" class="headerlink" title="二、安装 vue-cli"></a>二、安装 vue-cli</h2><p>安装好了 node，我们可以直接全局安装 vue-cli：</p>
-<p><code>npm install -g vue- cli</code></p>
-<p>但是这种安装方式比较慢，推荐使用国内镜像来安装，所以我们先设置 cnpm：</p>
-<p><code>npm install -g</code> cnpm –registry&#x3D; <a href="http://registry.npm.taobao.org/">https://registry.npm.taobao.org</a></p>
-<p>如果安装失败，可以使用 <code>npm cache clean</code> 清理缓存，然后再重新安装。后面的安装过程中，如有安装失败的情况，也需要先清理缓存</p>
-<p>同样可以使用 <code>cnpm -v</code> 查看是否安装成功<br><img src= "/img/loading.gif" data-lazy-src="https://itcnw3c.github.io/ITCN/pages/Vue_files/1yxhj2c7.bmp" alt="图 2"></p>
-<p>然后使用 cnpm 安装 vue-cli 和 webpack</p>
-<p><code>cnpm install -g vue- cli</code></p>
-<p>最新的 vue 项目模板中，都带有 webpack 插件，所以这里可以不安装 webpack</p>
-<p>安装完成后，可以使用 vue -V （注意 V 大写）查看是否安装成功。<br><img src= "/img/loading.gif" data-lazy-src="https://itcnw3c.github.io/ITCN/pages/Vue_files/5ua45x76.bmp" alt="图 3"></p>
-<p>如果提示“无法识别 ‘vue’ ” ，有可能是 npm 版本过低，可以使用 <code>npm install -g npm</code> 来更新版本</p>
-<h2 id="三、生成项目"><a href="#三、生成项目" class="headerlink" title="三、生成项目"></a>三、生成项目</h2><p>首先需要在命令行中进入到项目目录，然后输入：</p>
-<p><code>vue init webpack Vue-Project</code></p>
-<p>其中 webpack 是模板名称，可以到 vue.js 的 GitHub 上查看更多的模板*   <a href="https://github.com/vuejs-templates" title="Vue 模板">https://github.com/vuejs-templates</a></p>
-<p>Vue-Project 是自定义的项目名称，命令执行之后，会在当前目录生成一个以该名称命名的项目文件夹</p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://itcnw3c.github.io/ITCN/pages/Vue_files/qbttvixj.bmp" alt="图 4"></p>
-<p>配置完成后，可以看到目录下多出了一个项目文件夹，里面就是 vue-cli 创建的一个基于 webpack 的 vue.js 项目</p>
-<p>然后进入项目目录（cd Vue-Project），使用 cnpm 安装依赖</p>
-<p><code>cnpm install</code></p>
-<p>然后启动项目</p>
-<p><code>npm run dev</code></p>
-<p>如果浏览器打开之后，没有加载出页面，有可能是本地的 8080 端口被占用，需要修改一下配置文件 config&gt;index.js</p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://itcnw3c.github.io/ITCN/pages/Vue_files/4xdvkl02.bmp" alt="图 5"></p>
-<p>建议将端口号改为不常用的端口。另外我还将 build 的路径前缀修改为 ‘ .&#x2F; ‘（原本为 ‘ &#x2F; ‘），是因为打包之后，外部引入 js 和 css 文件时，如果路径以 ‘ &#x2F; ‘ 开头，在本地是无法找到对应文件的（服务器上没问题）。所以如果需要在本地打开打包后的文件，就得修改文件路径。</p>
-<h2 id="四、打包上线"><a href="#四、打包上线" class="headerlink" title="四、打包上线"></a>四、打包上线</h2><p>自己的项目文件都需要放到 src 文件夹下</p>
-<p>项目开发完成之后，可以输入 <code>npm run build</code> 来进行打包工作</p>
-<p><code>npm run build</code></p>
-<p>打包完成后，会生成 dist 文件夹，如果已经修改了文件路径，可以直接打开本地文件查看</p>
-<p>项目上线时，只需要将 dist 文件夹放到服务器就行了。</p>
-]]></content>
-      <categories>
-        <category>Vue</category>
-        <category>Vue脚手架</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
       </tags>
   </entry>
   <entry>
@@ -560,6 +375,170 @@ pom.xml文件如下：
       </categories>
       <tags>
         <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue项目脚手架</title>
+    <url>/2018/03/27/vue-doc/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>vue-cli 是一个官方发布 vue.js 项目脚手架，使用 vue-cli 可以快速创建 vue 项目，GitHub地址是：*<a href="https://github.com/vuejs/vue-cli">https://github.com/vuejs/vue-cli</a></p>
+<h2 id="一、安装-node-js"><a href="#一、安装-node-js" class="headerlink" title="一、安装 node.js"></a>一、安装 node.js</h2><p>首先需要安装node环境，可以直接到中文官网*   <a href="http://nodejs.cn/" title="Node.js中文官网">http://nodejs.cn/</a><br>下载安装包。</p>
+<p>只是这样安装的 node 是固定版本的，如果需要多版本的 node，可以使用 nvm 安装*   <a href="http://blog.csdn.net/s8460049/article/details/52396399" title="Node.js 安装">http://blog.csdn.net/s8460049/article/details/52396399</a></p>
+<p>安装完成后，可以命令行工具中输入 <code>node -v</code> 和 <code>npm -v</code>，如果能显示出版本号，就说明安装成功。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://itcnw3c.github.io/ITCN/pages/Vue_files/36zfjm6o.bmp" alt="图 1"></p>
+<h2 id="二、安装-vue-cli"><a href="#二、安装-vue-cli" class="headerlink" title="二、安装 vue-cli"></a>二、安装 vue-cli</h2><p>安装好了 node，我们可以直接全局安装 vue-cli：</p>
+<p><code>npm install -g vue- cli</code></p>
+<p>但是这种安装方式比较慢，推荐使用国内镜像来安装，所以我们先设置 cnpm：</p>
+<p><code>npm install -g</code> cnpm –registry&#x3D; <a href="http://registry.npm.taobao.org/">https://registry.npm.taobao.org</a></p>
+<p>如果安装失败，可以使用 <code>npm cache clean</code> 清理缓存，然后再重新安装。后面的安装过程中，如有安装失败的情况，也需要先清理缓存</p>
+<p>同样可以使用 <code>cnpm -v</code> 查看是否安装成功<br><img src= "/img/loading.gif" data-lazy-src="https://itcnw3c.github.io/ITCN/pages/Vue_files/1yxhj2c7.bmp" alt="图 2"></p>
+<p>然后使用 cnpm 安装 vue-cli 和 webpack</p>
+<p><code>cnpm install -g vue- cli</code></p>
+<p>最新的 vue 项目模板中，都带有 webpack 插件，所以这里可以不安装 webpack</p>
+<p>安装完成后，可以使用 vue -V （注意 V 大写）查看是否安装成功。<br><img src= "/img/loading.gif" data-lazy-src="https://itcnw3c.github.io/ITCN/pages/Vue_files/5ua45x76.bmp" alt="图 3"></p>
+<p>如果提示“无法识别 ‘vue’ ” ，有可能是 npm 版本过低，可以使用 <code>npm install -g npm</code> 来更新版本</p>
+<h2 id="三、生成项目"><a href="#三、生成项目" class="headerlink" title="三、生成项目"></a>三、生成项目</h2><p>首先需要在命令行中进入到项目目录，然后输入：</p>
+<p><code>vue init webpack Vue-Project</code></p>
+<p>其中 webpack 是模板名称，可以到 vue.js 的 GitHub 上查看更多的模板*   <a href="https://github.com/vuejs-templates" title="Vue 模板">https://github.com/vuejs-templates</a></p>
+<p>Vue-Project 是自定义的项目名称，命令执行之后，会在当前目录生成一个以该名称命名的项目文件夹</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://itcnw3c.github.io/ITCN/pages/Vue_files/qbttvixj.bmp" alt="图 4"></p>
+<p>配置完成后，可以看到目录下多出了一个项目文件夹，里面就是 vue-cli 创建的一个基于 webpack 的 vue.js 项目</p>
+<p>然后进入项目目录（cd Vue-Project），使用 cnpm 安装依赖</p>
+<p><code>cnpm install</code></p>
+<p>然后启动项目</p>
+<p><code>npm run dev</code></p>
+<p>如果浏览器打开之后，没有加载出页面，有可能是本地的 8080 端口被占用，需要修改一下配置文件 config&gt;index.js</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://itcnw3c.github.io/ITCN/pages/Vue_files/4xdvkl02.bmp" alt="图 5"></p>
+<p>建议将端口号改为不常用的端口。另外我还将 build 的路径前缀修改为 ‘ .&#x2F; ‘（原本为 ‘ &#x2F; ‘），是因为打包之后，外部引入 js 和 css 文件时，如果路径以 ‘ &#x2F; ‘ 开头，在本地是无法找到对应文件的（服务器上没问题）。所以如果需要在本地打开打包后的文件，就得修改文件路径。</p>
+<h2 id="四、打包上线"><a href="#四、打包上线" class="headerlink" title="四、打包上线"></a>四、打包上线</h2><p>自己的项目文件都需要放到 src 文件夹下</p>
+<p>项目开发完成之后，可以输入 <code>npm run build</code> 来进行打包工作</p>
+<p><code>npm run build</code></p>
+<p>打包完成后，会生成 dist 文件夹，如果已经修改了文件路径，可以直接打开本地文件查看</p>
+<p>项目上线时，只需要将 dist 文件夹放到服务器就行了。</p>
+]]></content>
+      <categories>
+        <category>Vue</category>
+        <category>Vue脚手架</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2018/03/22/hello-world/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+        <category>Hello World</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Sentinel流量防卫兵介绍、流量控制</title>
+    <url>/2018/12/24/spring-cloud-alibaba-2/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="一、Sentinel是什么？"><a href="#一、Sentinel是什么？" class="headerlink" title="一、Sentinel是什么？"></a>一、Sentinel是什么？</h2><p>  Sentinel是<strong>分布式系统的流量防卫兵</strong>！  </p>
+<p>  什么意思呢？ 在分布式系统中，各个节点之间往往会存在调用关系。比如电商系统中，<strong>订单节点A</strong>需要调用<strong>库存节点B</strong>的减库存接口，但是在<strong>库存节点B</strong>挂掉了，或者<strong>库存节点B</strong>负载极高，短时间内无法response，就可能导致订单节点也跟着异常或停滞。</p>
+<p>   为了防止这种，节点B挂掉（或停滞）导致节点A挂掉（或停滞），又进一步导致其他节点一同发生连锁反应，<strong>Hystrix闪亮登场</strong>。</p>
+<p>  嗯……说好的Sentinel，Hystrix是个什么鬼？</p>
+<p>   在SpringCloud的家族里面，Netflix公司开源的Hystrix才是老牌选手，具有“熔断、服务降级、近实时服务监控”的能力。Sentinel则是随着新生代（SpringCloud Alibaba）一同登场的“QPS可控、支撑近十年阿里巴巴双11”的强劲新人（<a href="https://www.cnblogs.com/zhyg/p/11474406.html">对两者区别有兴趣可以看看这里</a>）。</p>
+<p>   为了更好的理解Sentinel，我们先来看一下Sentinel最基本的功能——限流。</p>
+<h2 id="二、Sentinel-Dashboard"><a href="#二、Sentinel-Dashboard" class="headerlink" title="二、Sentinel Dashboard"></a>二、Sentinel Dashboard</h2><p>  Sentinel可视化控制台，我们可以在上面看到已连接服务的一些监控信息。</p>
+<ol>
+<li><p>下载Sentinel dashboard包。<br><a href="https://github.com/alibaba/Sentinel/releases">https://github.com/alibaba/Sentinel/releases</a> 可见所有版本的jar包。</p>
+</li>
+<li><p>启动dashboard。<br>java -Dserver.port&#x3D;8080 -Dcsp.sentinel.dashboard.server&#x3D;localhost:8080 -Dproject.name&#x3D;sentinel-dashboard -jar sentinel-dashboard-1.7.1.jar<br> <img src= "/img/loading.gif" data-lazy-src="https://raw.githubusercontent.com/Jeonke/PicGoPictureBed/master/img/20200826095816.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1OTQ2OTY5,size_16,color_FFFFFF,t_70" alt="图2"></p>
+</li>
+<li><p>访问localhost:8080，用户名密码全部默认sentinel。<br> <img src= "/img/loading.gif" data-lazy-src="https://raw.githubusercontent.com/Jeonke/PicGoPictureBed/master/img/20200826101344.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1OTQ2OTY5,size_16,color_FFFFFF,t_70" alt="图2"></p>
+<ol start="4">
+<li>进入dashboard，可以看到这里有某个服务的QPS数据（图中是Sentinel Dashboard自身的服务接口），左侧菜单栏里面可以配置流量控制规则、服务降级规则、热点数据规则。<br> <img src= "/img/loading.gif" data-lazy-src="https://raw.githubusercontent.com/Jeonke/PicGoPictureBed/master/img/20200826101513.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1OTQ2OTY5,size_16,color_FFFFFF,t_70" alt="图3"></li>
+</ol>
+</li>
+</ol>
+<h2 id="三、Sentinel-接入端"><a href="#三、Sentinel-接入端" class="headerlink" title="三、Sentinel 接入端"></a>三、Sentinel 接入端</h2><p>  dashboard是一个便捷的页面管理工具，真正的Sentinel功能还是依赖在业务项目之中，我们继续在之前的Demo基础上进行扩充。</p>
+<ol>
+<li>添加依赖。<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">&lt;dependency&gt;</span></span><br><span class="line">    <span class="string">&lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt;</span></span><br><span class="line">    <span class="string">&lt;artifactId&gt;spring-cloud-starter-alibaba-sentinel&lt;/artifactId&gt;</span></span><br><span class="line"><span class="string">&lt;/dependency&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>添加配置。（<a href="/2018/12/24/spring-cloud-alibaba-1/">上一章</a>我们介绍了可以在Nacos配置中心添加yml或properties配置，但是这里为了代码完整保存，仍然写在了bootstrap.properties中）。</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">spring.cloud.sentinel.transport.port=8121</span><br><span class="line">spring.cloud.sentinel.transport.dashboard=localhost:8080</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>添加接口并配置Sentinel资源名称：test。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> com.alibaba.csp.sentinel.annotation.SentinelResource;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.GetMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestController</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@SentinelResource(&quot;test&quot;)</span></span><br><span class="line">    <span class="meta">@GetMapping(value = &quot;/test&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">test</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;test&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>启动application，页面访问测试接口（<em>注意：必须先访问过该接口，才能在dashboard上看到该接口的信息</em>）。<br><img src= "/img/loading.gif" data-lazy-src="https://raw.githubusercontent.com/Jeonke/PicGoPictureBed/master/img/20200826101803.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1OTQ2OTY5,size_16,color_FFFFFF,t_70" alt="图4"></li>
+<li>查看dashboard，可以看到order项目已经被sentinel dashboard监控到了。我们可以直接在页面上配置流量限制（<em>注意：页面配置不是持久化的，之后章节我们会介绍sentinel规则持久化的方法</em>）。<br><img src= "/img/loading.gif" data-lazy-src="https://raw.githubusercontent.com/Jeonke/PicGoPictureBed/master/img/20200826101850.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1OTQ2OTY5,size_16,color_FFFFFF,t_70" alt="图5"></li>
+<li>测试 流量限制，设置test接口的QPS 单机阈值为1.<br><img src= "/img/loading.gif" data-lazy-src="https://raw.githubusercontent.com/Jeonke/PicGoPictureBed/master/img/20200826101957.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1OTQ2OTY5,size_16,color_FFFFFF,t_70" alt="图6"></li>
+<li>测试 流量限制，连续访问test接口两次，发现第二次接口不可达，测试成功。<br><img src= "/img/loading.gif" data-lazy-src="https://raw.githubusercontent.com/Jeonke/PicGoPictureBed/master/img/20200826102041.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1OTQ2OTY5,size_16,color_FFFFFF,t_70" alt="图7"><br><img src= "/img/loading.gif" data-lazy-src="https://raw.githubusercontent.com/Jeonke/PicGoPictureBed/master/img/20200826102122.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1OTQ2OTY5,size_16,color_FFFFFF,t_70" alt="图8"></li>
+</ol>
+<h2 id="四、热点规则-x2F-服务降级规则"><a href="#四、热点规则-x2F-服务降级规则" class="headerlink" title="四、热点规则&#x2F;服务降级规则"></a>四、热点规则&#x2F;服务降级规则</h2><p>  除了流量控制，sentinel还支持热点流量控制、服务降级规则配置等</p>
+<h3 id="热点规则"><a href="#热点规则" class="headerlink" title="热点规则"></a>热点规则</h3><p>   热点规则是对接口规则的更细化的控制，可以通过对参数进行流量控制，比如将test方法改造为带参数的方法（如下代码），然后配置热点规则的参数索引、单机阈值、统计窗口长度（如下图），则可以按照参数限制。<br>   <em>限制规则：按照索引下标选择限制的参数，如test接口限制第一个参数name，若该参数为某值的方法连续被调用n次（如name&#x3D;”asd”在窗口长度时间内调用超过单机阈值次数），则接下来的name&#x3D;”asd”的访问请求将无法访问。</em></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@SentinelResource(&quot;test&quot;)</span></span><br><span class="line">    <span class="meta">@GetMapping(value = &quot;/test&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">test</span><span class="params">(<span class="meta">@RequestParam</span> String name)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>   <img src= "/img/loading.gif" data-lazy-src="https://raw.githubusercontent.com/Jeonke/PicGoPictureBed/master/img/20200826102304.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1OTQ2OTY5,size_16,color_FFFFFF,t_70" alt="图9"></p>
+<h3 id="降级规则"><a href="#降级规则" class="headerlink" title="降级规则"></a>降级规则</h3><p>  降级规则则是从 服务响应时间、接口异常次数、接口异常频率来评估接口，若响应过慢，或异常次数过多，则对接口进行降级。</p>
+<p> 如：test接口被限制为1分钟内异常2次就进行服务降级，服务降级3秒。测试代码及dashboard配置如下。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@SentinelResource(&quot;test&quot;)</span></span><br><span class="line">    <span class="meta">@GetMapping(value = &quot;/test&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">test</span><span class="params">(<span class="meta">@RequestParam</span> String name)</span>&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(<span class="string">&quot;asdasd&quot;</span>);<span class="comment">// 服务降级前页面会看到异常抛出asdasd，服务降级后不会有该信息</span></span><br><span class="line">        <span class="comment">//return name;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://raw.githubusercontent.com/Jeonke/PicGoPictureBed/master/img/20200826102447.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1OTQ2OTY5,size_16,color_FFFFFF,t_70" alt="图10"></p>
+<h2 id="五、Sentinel的主要功能就是容错，主要体现为下面这个三个："><a href="#五、Sentinel的主要功能就是容错，主要体现为下面这个三个：" class="headerlink" title="五、Sentinel的主要功能就是容错，主要体现为下面这个三个："></a>五、Sentinel的主要功能就是容错，主要体现为下面这个三个：</h2><h3 id="1-流量控制"><a href="#1-流量控制" class="headerlink" title="1.流量控制"></a>1.流量控制</h3><p>  流量控制在网络传输中是一个常用的概念，它用于调整网络包的数据。任意时间到来的请求往往是随机不可控的，而系统的处理能力是有限的。我们需要根据系统的处理能力对流量进行控制。Sentinel作为一个调配器，可以根据需要吧随机的请求调整成合适的形状。</p>
+<h3 id="2-熔断降级"><a href="#2-熔断降级" class="headerlink" title="2.熔断降级"></a>2.熔断降级</h3><p>   当检测到调用链路中某个资源出现不稳定的表现，例如请求响应时间长或异常比例升高的时候，则对这个资源的调用进行限制，让请求快速失败，避免影响到其他的资源而导致级联故障。<br>   Sentinel对这个问题采取了两种手段：<br>   通过并发线程数进行限制<br>   Sentinel通过限制资源并发线程的数量，来减少不稳定资源对其他资源的影响。当某个资源出现不稳定的情况下，例如响应时间变长，对资源的直接影响就是会造成线程数的逐步堆积。当线程数在特定资源堆积到一定的数量之后，对该资源的新请求就会被拒绝。堆积的线程完成任务后才开始继续接受请求。<br>   通过响应时间对资源进行降级<br>   除了对并发线程数进行控制以外，Sentinel还可以通过响应时间来快速降级不稳定的资源。当依赖的资源出现响应时间过长后，所有对资源的访问都会被直接拒绝，直到过了指定的时间窗口之后才重新恢复。</p>
+<h3 id="Sentinel和Hystrix的区别"><a href="#Sentinel和Hystrix的区别" class="headerlink" title="Sentinel和Hystrix的区别"></a>Sentinel和Hystrix的区别</h3><p>   两者的原则是一致的，都是当一个资源出现问题时，让其快速失败，不要波及到其它服务但是在限制的手段上，确采取了完全不一样的方法：<br>   Hystrix采用的是线程池隔离的方式，优点是做到了资源之间的隔离，缺点是增加了线程切换的成本。<br>   Sentinel采用的是通过并发线程的数量和响应时间来对资源做限制。</p>
+<h3 id="3-系统负载保护"><a href="#3-系统负载保护" class="headerlink" title="3.系统负载保护"></a>3.系统负载保护</h3><p>   Sentinel同时提供系统维度的自适应保护能力。当系统负载较高的时候，如果还持续让请求进入可能会导致系统崩溃，无法响应。在集群环境下，会把本应这台机器承载的流量转发到其他的机器上去。如果这个时候其它的机器也处在一个边缘状态的时候，Sentinel提供了对应的保护机制，让系统的入口流量和系统的负载达到一个平衡，保证系统在能力范围之内处理最多的请求。</p>
+<p>   总之一句话：我们需要做的事情，就是在Sentinel的资源上配置各种各样的规则，来实现各种容错的功能。Sentinel的功能很强大，不只是可以对接口进行限制，还可以让超出限制的请求去调用本地的‘失败专用接口’。而后续的‘失败专用接口’则是关乎用户体验的命脉，这一部分以及规则持久化我们下一章再来介绍。</p>
+]]></content>
+      <categories>
+        <category>SpringCloud Alibaba</category>
+        <category>Sentinel流量防卫兵介绍、流量控制</category>
+      </categories>
+      <tags>
+        <tag>SpringCloud Alibaba</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Nacos配置中心</title>
+    <url>/2018/12/24/spring-cloud-alibaba-1/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="一、Nacos配置中心"><a href="#一、Nacos配置中心" class="headerlink" title="一、Nacos配置中心"></a>一、Nacos配置中心</h2><p>上文我们介绍了Nacos作为注册中心的简单实用：<a href="/2018/12/23/spring-cloud-alibaba/">SpringCloud Alibaba——Alibaba与Nacos服务注册与发现</a>，本文我们来聊一聊Nacos的另外一个功能：分布式系统的配置中心。  </p>
+<p>   什么是配置中心？分布式&#x2F;微服务的架构，每个业务模块必然是多节点多主机的，那么他们之间配置文件的统一管理就显得十分有必要。配置中心即这样一个多节点系统的唯一配置中心，大家需要的配置文件都存放在我这里。 </p>
+<p>  <em>并且每个人还可以存放多个版本的配置文件，按需获取，比如A节点可以有开发环境的配置文件、UAT环境配置文件、生产环境配置文件等多个版本。</em></p>
+<h2 id="二、项目中配置"><a href="#二、项目中配置" class="headerlink" title="二、项目中配置"></a>二、项目中配置</h2><ol>
+<li>在业务项目中（或我们之前demo mall项目中 ）增加pom.xml文件的依赖。</li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">&lt;!--</span> <span class="string">使用Nacos</span> <span class="string">Config</span> <span class="string">--&gt;</span></span><br><span class="line"><span class="string">&lt;dependency&gt;</span></span><br><span class="line">    <span class="string">&lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt;</span></span><br><span class="line">    <span class="string">&lt;artifactId&gt;spring-cloud-starter-alibaba-nacos-config&lt;/artifactId&gt;</span></span><br><span class="line"><span class="string">&lt;/dependency&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>删除原有 application.yml或application.properties。<br> application.properties的配置我们将挪动到配置中心，稍后配置。</li>
+<li>新建并配置bootstrap.properties文件。<br> bootstrap.properties文件会先于application.properties。在这里配置的是获取nacos配置的相关信息。</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># nacos地址</span></span><br><span class="line">spring.cloud.nacos.config.server-addr=127.0.0.1:8848</span><br><span class="line"><span class="comment"># 配置中心对应的配置文件所属的组，稍后在Nacos中创建文件时对应。</span></span><br><span class="line">spring.cloud.nacos.config.group=mall:order </span><br><span class="line">spring.application.name=order </span><br><span class="line"><span class="comment"># 配置中心存放的对应文件命名规则为： spring.application.name-spring.profiles.active</span></span><br><span class="line">spring.profiles.active=dev </span><br><span class="line"><span class="comment"># spring.profiles.active=prod</span></span><br></pre></td></tr></table></figure>
+
+
+<ol start="4">
+<li>在Nacos控制台配置对应的配置文件（Nacos也支持用代码推送配置文件到配置中心，方便运维）。<br> <img src= "/img/loading.gif" data-lazy-src="https://raw.githubusercontent.com/Jeonke/PicGoPictureBed/master/img/20200825165613.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1OTQ2OTY5,size_16,color_FFFFFF,t_70" alt="图1"><br>*注意，项目中配置的name&#x2F;active&#x2F;id需要和这里的dataid、group对应起来。 *</li>
+<li>运行项目，可以看到项目按照到配置中心配置的8081端口运行。并且在注册中心可以看到该项目节点。<br><img src= "/img/loading.gif" data-lazy-src="https://raw.githubusercontent.com/Jeonke/PicGoPictureBed/master/img/20200825165755.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1OTQ2OTY5,size_16,color_FFFFFF,t_70" alt="图2"><br><img src= "/img/loading.gif" data-lazy-src="https://raw.githubusercontent.com/Jeonke/PicGoPictureBed/master/img/20200825170021.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1OTQ2OTY5,size_16,color_FFFFFF,t_70" alt="图3"></li>
+</ol>
+]]></content>
+      <categories>
+        <category>SpringCloud Alibaba</category>
+        <category>Nacos配置中心</category>
+      </categories>
+      <tags>
+        <tag>SpringCloud Alibaba</tag>
       </tags>
   </entry>
 </search>
